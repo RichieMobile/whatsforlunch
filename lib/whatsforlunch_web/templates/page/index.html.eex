@@ -1,9 +1,8 @@
 <div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h2>
-  <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
+  <%# <h2><%= gettext "Welcome to %{name}!", name: "What's for lunch!"</h2> %>
+  <h2>Welcome to What's for lunch!</h2>
+  <p class="lead">A productive app<br />that keeps you satiated</p>
 </div>
-
 <div>
   <span><%= link "What's for Lunch", to: page_path(@conn, :random) %></span>
-  <span><%= link "Restaurants", to: restaurant_path(@conn, :index) %></span>
 </div>
