@@ -1,5 +1,7 @@
 # Whatsforlunch
 
+Whats for Lunch? helps you or your team choose where to get lunch!
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
