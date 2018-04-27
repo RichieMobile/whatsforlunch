@@ -1,6 +1,6 @@
 <div class="jumbotron">
   <%# <h2><%= gettext "Welcome to %{name}!", name: "What's for lunch!"</h2> %>
-  <h2>Welcome to What's for lunch!</h2>
+  <h2>Welcome to What's for Lunch!</h2>
   <p class="lead">A productive app<br />that keeps you satiated</p>
 </div>
 <div>

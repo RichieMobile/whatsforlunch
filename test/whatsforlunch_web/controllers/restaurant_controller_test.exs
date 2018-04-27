@@ -15,7 +15,7 @@ defmodule WhatsforlunchWeb.RestaurantControllerTest do
   describe "index" do
     test "lists all restaurants", %{conn: conn} do
       conn = get conn, restaurant_path(conn, :index)
-      assert html_response(conn, 200) =~ "Listing Restaurants"
+      assert html_response(conn, 200) =~ "Restaurants"
     end
   end
 
