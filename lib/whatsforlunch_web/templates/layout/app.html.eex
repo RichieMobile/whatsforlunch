@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello Whatsforlunch!</title>
+    <title>Let's Eat!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
@@ -15,17 +15,23 @@
     <div class="container">
       <header class="header">
         <nav role="navigation">
+          <ul class="nav nav-pills pull-left">
+            <span><%= link "Home", to: page_path(@conn, :index) %></span>
+          </ul>
           <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
+            <span><%= link "Restaurants", to: restaurant_path(@conn, :index) %></span>
           </ul>
         </nav>
-        <span class="logo"></span>
+        <%# <span class="logo"></span> %>
+        <span></span>
       </header>
 
+      </br>
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
       <main role="main">
+        </br>
         <%= render @view_module, @view_template, assigns %>
       </main>
 

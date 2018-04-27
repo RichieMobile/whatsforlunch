@@ -1,0 +1,5 @@
+<div class="jumbotron">
+  <h2><%= @restaurant.name %></h2>
+  <p><%= @restaurant.location %></p>
+</div>
+<span><%= link "Back", to: page_path(@conn, :index) %></span>
