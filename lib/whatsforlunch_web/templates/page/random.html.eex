@@ -1,0 +1,4 @@
+<p><%= @restaurant.name %></p>
+<p><%= @restaurant.location %></p>
+
+<span><%= link "Back", to: page_path(@conn, :index) %></span>
