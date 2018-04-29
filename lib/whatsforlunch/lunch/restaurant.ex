@@ -6,6 +6,7 @@ defmodule Whatsforlunch.Lunch.Restaurant do
   schema "restaurants" do
     field :location, :string
     field :name, :string
+    field :website, :string
 
     timestamps()
   end
@@ -13,7 +14,7 @@ defmodule Whatsforlunch.Lunch.Restaurant do
   @doc false
   def changeset(restaurant, attrs) do
     restaurant
-    |> cast(attrs, [:name, :location])
-    |> validate_required([:name, :location])
+    |> cast(attrs, [:name, :location, :website])
+    |> validate_required([:name])
   end
 end

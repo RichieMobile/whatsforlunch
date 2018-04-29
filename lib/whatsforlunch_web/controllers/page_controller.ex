@@ -9,9 +9,13 @@ defmodule WhatsforlunchWeb.PageController do
 
   def random(conn, _params) do
     Logger.info("Getting random restaurant")
-    restaurants = Lunch.list_restaurants
-    number = :rand.uniform(length(restaurants)) - 1 
-    restaurant = Enum.at(restaurants, number)
+    restaurant = case Lunch.list_restaurants do
+      [] ->
+        %Lunch.Restaurant{name: "Oops!", location: "No restaurants configured"}
+      restaurants ->
+        number = :rand.uniform(length(restaurants)) - 1 
+        restaurant = Enum.at(restaurants, number)
+    end
     render(conn, "random.html", restaurant: restaurant)
   end
 end

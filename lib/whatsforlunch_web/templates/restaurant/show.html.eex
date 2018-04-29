@@ -12,6 +12,12 @@
     <%= @restaurant.location %>
   </li>
 
+
+  <li>
+    <strong>Website:</strong>
+    <a href="<%= @restaurant.website %>" target="_blank"><%= @restaurant.website %></a>
+  </li>
+
 </ul>
 
 <span><%= link "Edit", to: restaurant_path(@conn, :edit, @restaurant) %></span>
