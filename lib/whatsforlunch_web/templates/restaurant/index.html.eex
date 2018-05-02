@@ -15,9 +15,9 @@
     <tr>
       <td><%= restaurant.name %></td>
       <td><%= restaurant.location %></td>
-      <td>
+      <td class="word-wrap: break-word">
         <%= if restaurant.website do %>
-        <a href="<%= restaurant.website %>" target="_blank"><%= restaurant.website %></a>
+        <a href="<%= restaurant.website %>" target="_blank">Yelp!</a>
         <% end %>
       </td>
       <%# <td><%= link "Menu", to: restaurant.website </td> %>
