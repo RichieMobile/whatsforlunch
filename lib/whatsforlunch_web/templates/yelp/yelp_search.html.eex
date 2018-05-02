@@ -1,8 +1,15 @@
-<h2>Search Yelp</h2>
+<h2>Search Yelp!</h2>
 
 <%= form_for @conn, yelp_path(@conn, :yelp_add), [as: :search], fn f -> %>
-  <%= text_input f, :for %>
-  <%= submit "Search" %>
+
+  <div class="form-group">
+    <%= label f, "Address", class: "control-label" %>
+    <%= text_input f, :for, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Search", class: "btn btn-primary" %>
+  </div>
 <% end %>
 
 <span><%= link "Back", to: restaurant_path(@conn, :index) %></span>
