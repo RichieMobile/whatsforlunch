@@ -1,7 +1,6 @@
 <h2>Search Yelp!</h2>
 
 <%= form_for @conn, yelp_path(@conn, :yelp_add), [as: :search], fn f -> %>
-
   <div class="form-group">
     <%= label f, "Address", class: "control-label" %>
     <%= text_input f, :for, class: "form-control" %>
