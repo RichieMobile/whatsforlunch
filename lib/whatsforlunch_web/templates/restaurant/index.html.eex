@@ -34,3 +34,4 @@
 </table>
 
 <span><%= link "New Restaurant", to: restaurant_path(@conn, :new) %></span>
+<span><%= link "Search Yelp!", to: yelp_path(@conn, :yelp_search) %></span>

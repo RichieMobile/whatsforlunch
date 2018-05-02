@@ -8,6 +8,8 @@ defmodule Whatsforlunch.Yelp.YelpApiTest do
 
     test "Yelp API returns some restaurants" do
         {_, search_result} = YelpApi.search("700 E Franklin St, Richmond, VA 23219")
+        IO.inspect search_result
+
         restaurants = search_result.businesses
         Enum.each restaurants, fn r ->
             IO.inspect r.location.display_address

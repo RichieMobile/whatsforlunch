@@ -1,0 +1,11 @@
+<h2>Search Yelp</h2>
+
+<%# <%= render "yelp_search_form.html", Map.put(assigns, :action, yelp_path(@conn, :yelp_add, [@search])) %> %>
+
+<%= form_for @conn, yelp_path(@conn, :yelp_add), [as: :search], fn f -> %>
+  <%= text_input f, :for %>
+  <%= submit "Search" %>
+<% end %>
+
+<span><%= link "Back", to: restaurant_path(@conn, :index) %></span>
+

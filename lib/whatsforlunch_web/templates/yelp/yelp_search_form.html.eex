@@ -1,0 +1,12 @@
+<%= form_for @conn, @action, @search, fn f -> %>
+
+  <div class="form-group">
+    <%= label f, :search, class: "control-label" %>
+    <%= text_input f, :search, class: "form-control" %>
+    <%= error_tag f, :search %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

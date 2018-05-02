@@ -1,4 +1,4 @@
 defmodule Whatsforlunch.Yelp.Address do
     @derive [Poison.Encoder]
-    defstruct [:display_address]
+    defstruct [display_address: [""]]
 end

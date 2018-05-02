@@ -7,12 +7,13 @@ defmodule Whatsforlunch.Yelp.YelpApi do
 
     def search(location) do
         key = Application.get_env(:whatsforlunch, Whatsforlunch.Yelp.YelpApi)[:yelp_api_key]
-        Logger.info("Yelp API Key:")
-        Logger.info(key)
+        Logger.info("Yelp API Key: #{key}")
+        Logger.info("Searching for restaurants with location: #{location}")
 
         url = "https://api.yelp.com/v3/businesses/search?term=restaurants&location=#{location}"
         headers = ["Authorization": "Bearer #{key}", "Accept": "Application/json; Charset=utf-8"]
         options = [ssl: [{:versions, [:'tlsv1.2']}], recv_timeout: 5000]
+        Logger.debug("URL: #{url}")
         case HTTPoison.get(url, headers, options) do
             {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
                 Logger.info("body" <> body)
