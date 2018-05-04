@@ -18,7 +18,10 @@ defmodule WhatsforlunchWeb.Router do
 
     get "/", PageController, :index
     get "/random", PageController, :random
+
     resources "/restaurants", RestaurantController
+    get "/yelp_search", YelpController, :yelp_search
+    post "/yelp_add", YelpController, :yelp_add
   end
 
   # Other scopes may use custom stacks.

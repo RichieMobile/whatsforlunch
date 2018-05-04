@@ -3,6 +3,11 @@ defmodule WhatsforlunchWeb.RestaurantController do
 
   alias Whatsforlunch.Lunch
   alias Whatsforlunch.Lunch.Restaurant
+  alias Whatsforlunch.Yelp.YelpApi
+  alias Whatsforlunch.Yelp.Search
+  alias Whatsforlunch.Mapper.SearchResultToRestaurant
+
+  require Logger
 
   def index(conn, _params) do
     restaurants = Lunch.list_restaurants()

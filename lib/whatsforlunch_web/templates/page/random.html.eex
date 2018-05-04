@@ -2,8 +2,11 @@
   <h2><%= @restaurant.name %></h2>
   <p><%= @restaurant.location %></p>
   <%= if @restaurant.website do %>
-  <a href="<%= @restaurant.website %>" target="_blank"><%= @restaurant.website %></a>
+    <%= if String.starts_with?(@restaurant.website, "https://www.yelp.com") do %>
+      <a href="<%= @restaurant.website %>" target="_blank">Yelp!</a>
+    <% else %>
+      <a href="<%= @restaurant.website %>" target="_blank">Website</a>
+    <% end %>
   <% end %>
-
 </div>
 <span><%= link "Back", to: page_path(@conn, :index) %></span>

@@ -56,3 +56,7 @@ config :whatsforlunch, Whatsforlunch.Repo,
   database: "whatsforlunch_dev",
   hostname: "localhost",
   pool_size: 10
+
+# Configure Yelp API Key
+config :whatsforlunch, yelp_api_key: System.get_env("YELP_API_KEY")
+
