@@ -17,7 +17,11 @@
       <td><%= restaurant.location %></td>
       <td class="word-wrap: break-word">
         <%= if restaurant.website do %>
-        <a href="<%= restaurant.website %>" target="_blank">Yelp!</a>
+          <%= if String.starts_with?(restaurant.website, "https://www.yelp.com") do %>
+            <a href="<%= restaurant.website %>" target="_blank">Yelp!</a>
+          <% else %>
+            <a href="<%= restaurant.website %>" target="_blank">Website</a>
+          <% end %>
         <% end %>
       </td>
       <%# <td><%= link "Menu", to: restaurant.website </td> %>
