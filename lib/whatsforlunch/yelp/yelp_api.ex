@@ -12,10 +12,10 @@ defmodule Whatsforlunch.Yelp.YelpApi do
 
         url = "https://api.yelp.com/v3/businesses/search"
         headers = ["Authorization": "Bearer #{key}", "Accept": "Application/json; Charset=utf-8"]
+        params = %{term: "food", location: location, limit: 40}
         options = [ssl: [{:versions, [:'tlsv1.2']}], recv_timeout: 5000]
-        case HTTPoison.get(url, headers, params: %{term: "food", location: location, limit: 40}, options: options) do
+        case HTTPoison.get(url, headers, params: params, options: options) do
             {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
-                Logger.info("body" <> body)
                 {:ok, decode_response(body)}
             {:ok, %HTTPoison.Response{status_code: 404}} ->
                 {:error, "404 Not Found"}
