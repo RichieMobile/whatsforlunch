@@ -20,7 +20,8 @@ defmodule Whatsforlunch.Mixfile do
   def application do
     [
       mod: {Whatsforlunch.Application, []},
-      extra_applications: [:logger, :runtime_tools, :httpoison]
+      extra_applications: [:logger, :runtime_tools, :httpoison],
+      included_applications: [:parse_trans]
     ]
   end
 
@@ -41,7 +42,8 @@ defmodule Whatsforlunch.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:httpoison, "~> 1.1.1"}
+      {:httpoison, "~> 1.1.1"},
+      {:distillery, "~> 1.5.2"}
     ]
   end
 
