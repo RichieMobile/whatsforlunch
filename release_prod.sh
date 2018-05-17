@@ -8,7 +8,7 @@ PORT=$2
 cd assets && node_modules/brunch/bin/brunch b -p && cd ..
 
 MIX_ENV=prod mix phx.digest
-MIX_ENV=prod mix release
+YELP_API_KEY=$KEY MIX_ENV=prod mix release
 
 if [ -n $3 ] && [ "$3" = "run" ] 
     then
