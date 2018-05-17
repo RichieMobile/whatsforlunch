@@ -6,7 +6,7 @@ Whats for Lunch? helps you or your team choose where to get lunch!
 
 Prerequisites
 
-- Yelp API Key (set as environmental variable YELP_API_KEY)
+- Yelp API Key (set as environmental variable YELP_API_KEY **AT COMPILE TIME**)
 - prod.secret.exs file placed in config
 
 To start your Phoenix server:
