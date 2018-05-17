@@ -4,6 +4,11 @@ Whats for Lunch? helps you or your team choose where to get lunch!
 
 **NOTE** By default, What's for Lunch? is configured to run with PostgreSQL
 
+Prerequisites
+
+- Yelp API Key (set as environmental variable YELP_API_KEY)
+- prod.secret.exs file placed in config
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
