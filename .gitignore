@@ -30,3 +30,4 @@ npm-debug.log
 run*.sh
 rprod.sh
 rdocker*
+doc

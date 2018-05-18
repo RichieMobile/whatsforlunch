@@ -10,7 +10,15 @@ defmodule Whatsforlunch.Mixfile do
       compilers: [:phoenix, :gettext] ++ Mix.compilers,
       start_permanent: Mix.env == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+
+      # Docs
+      name: "Whats for Lunch?",
+      source_url: "https://github.com/RichieMobile/whatsforlunch",
+      docs: [
+              #main: "Whats for Lunch?", # The main page in the docs
+              #logo: "path/to/logo.png",
+              extras: ["README.md"]]
     ]
   end
 
@@ -43,7 +51,8 @@ defmodule Whatsforlunch.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:httpoison, "~> 1.1.1"},
-      {:distillery, "~> 1.5.2"}
+      {:distillery, "~> 1.5.2"},
+      {:ex_doc, "~> 0.18.3", only: :dev, runtime: false}
     ]
   end
 

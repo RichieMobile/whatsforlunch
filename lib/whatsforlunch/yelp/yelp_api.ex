@@ -5,6 +5,34 @@ defmodule Whatsforlunch.Yelp.YelpApi do
 
     require Logger
 
+    @moduledoc """
+    This module is used for accessing Yelp API's.
+    """
+
+    @doc """
+    Searches Yelp for restaurants based on a location (generally an address).
+    ## Parameters
+
+        - location: String that represents a location (address, zip code, etc..)
+
+    ## Examples
+
+        iex> Whatsforlunch.Yelp.YelpApi.search("1600 Amphitheatre Parkway, Mountain View, CA")
+        [info] Searching for restaurants with location: 1600 Amphitheatre Parkway, Mountain View, CA
+        {:ok,
+        %Whatsforlunch.Yelp.SearchResult{
+        businesses: [
+            %Whatsforlunch.Yelp.Restaurant{
+            location: %Whatsforlunch.Yelp.Address{
+                display_address: ["..."]
+            },
+            name: "...",
+            url: "https://www.yelp.com/..."
+            },
+            ...
+        ]
+        }}
+    """
     def search(location) do
         key = Application.get_env(:whatsforlunch, Whatsforlunch.Yelp.YelpApi)[:yelp_api_key]
         Logger.info("Yelp API Key: #{key}")
@@ -26,7 +54,7 @@ defmodule Whatsforlunch.Yelp.YelpApi do
         end
     end
 
-    def decode_response(response) do
+    defp decode_response(response) do
         response
         |> Poison.decode!(as: %SearchResult{businesses: [%Restaurant{location: %Address{}}]})
     end
