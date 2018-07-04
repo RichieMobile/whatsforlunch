@@ -14,14 +14,36 @@ defmodule WhatsforlunchWeb.PageController do
   def random_range(conn, params) do
     Logger.info("Getting random range of restaurants: #{params["count"]}")
 
-    Lunch.list_restaurants
-    |> get_random_restaurants(params["count"])
-    |> render_restuarants(conn, "random_range.html")
+    restaurants = Lunch.list_restaurants
+    {count, _param} = Integer.parse(params["count"])
+
+    if count > length(restaurants) do
+      render_restuarants restaurants, conn, "random_range.html"
+    else 
+      get_random_range_of_unique_indexes(Map.new, length(restaurants), count)
+      |> Enum.map(&(Enum.at(restaurants, &1)))
+      |> render_restuarants(conn, "random_range.html")
+    end
   end
 
   defp get_random_restaurants([], _range) do
     Logger.info("No restaurants configured, displaying error.")
     %Lunch.Restaurant{name: "Oops!", location: "No restaurants configured"}
+  end
+
+  defp get_random_range_of_unique_indexes(map, max_range, number) do
+    n = :rand.uniform(max_range) - 1 
+    length = length(Map.keys(map))
+    cond do
+      length == number -> 
+        Logger.info("Generated unique key list")
+        Map.keys map
+      !Map.has_key?(map, n) ->
+        Map.put(map, n, n)
+        |> get_random_range_of_unique_indexes(max_range, number)
+      true ->
+        get_random_range_of_unique_indexes(map, max_range, number)
+    end
   end
 
   defp get_random_restaurants(restaurants, range) do
