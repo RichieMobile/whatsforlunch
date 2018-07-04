@@ -1,0 +1,15 @@
+<%= for restaurant <- @restaurants do %>
+<div class="jumbotron">
+  <h2><%= restaurant.name %></h2>
+  <p><%= restaurant.location %></p>
+  <%= if restaurant.website do %>
+    <%= if String.starts_with?(restaurant.website, "https://www.yelp.com") do %>
+      <a href="<%= restaurant.website %>" target="_blank">Yelp!</a>
+    <% else %>
+      <a href="<%= restaurant.website %>" target="_blank">Website</a>
+    <% end %>
+  <% end %>
+</div>
+<% end %>
+
+<span><%= link "Back", to: page_path(@conn, :random_selection) %></span>

@@ -4,5 +4,6 @@
   <p class="lead">A productive app<br />that keeps you satiated</p>
 </div>
 <div>
-  <span><%= link "What's for lunch?", to: page_path(@conn, :random) %></span>
+  <span class="pull-left"><%= link "What's for lunch?", to: page_path(@conn, :random) %></span>
+  <span class="pull-right"><%= link "Can you give me a few options?", to: page_path(@conn, :random_selection) %></span>
 </div>
