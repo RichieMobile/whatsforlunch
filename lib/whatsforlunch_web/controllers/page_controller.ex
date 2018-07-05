@@ -14,15 +14,24 @@ defmodule WhatsforlunchWeb.PageController do
   def random_range(conn, params) do
     Logger.info("Getting random range of restaurants: #{params["count"]}")
 
-    restaurants = Lunch.list_restaurants
-    {count, _param} = Integer.parse(params["count"])
+    restaurants = get_restaurants()
 
-    if count > length(restaurants) do
+    {count, _param} = Integer.parse(params["count"])
+    if count >= length(restaurants) do
       render_restuarants restaurants, conn, "random_range.html"
     else 
       get_random_range_of_unique_indexes(Map.new, length(restaurants), count)
       |> Enum.map(&(Enum.at(restaurants, &1)))
       |> render_restuarants(conn, "random_range.html")
+    end
+  end
+
+  defp get_restaurants() do
+    restaurants = Lunch.list_restaurants
+    if length(restaurants) == 0 do
+      restaurants ++ [%Lunch.Restaurant{name: "Oops!", location: "No restaurants configured"}]
+    else 
+      restaurants
     end
   end
 
