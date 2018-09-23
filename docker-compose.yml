@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  whatsforlunch:
+    image: whatsforlunch:1.0.0
+    restart: always
+    ports:
+      - "6701:4100"
+
+  grafana:
+    image: grafana/grafana:5.2.2
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana/grafanastore:/var/lib/grafana
